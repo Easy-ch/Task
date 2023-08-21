@@ -2,9 +2,10 @@ from django.db import models
 from django.contrib.auth import get_user_model
 from django.utils.html import format_html
 from django.contrib import admin
+from django.forms import ModelForm
 # Create your models here.
 User = get_user_model()
-class OnlineShop(models.Model):
+class OnlineShop(models.Model): 
     title = models.CharField('Заголовок', max_length=128)
     description = models.TextField('Описание')
     price = models.DecimalField('Цена', max_digits=10,decimal_places=2)
@@ -12,7 +13,7 @@ class OnlineShop(models.Model):
     created_time = models.DateTimeField(auto_now_add=True,verbose_name='Создан')
     update_time = models.DateTimeField(auto_now=True,verbose_name='Обновлен')
     user = models.ForeignKey(User, verbose_name='пользователь', on_delete=models.CASCADE)
-    image = models.ImageField('Изображение',upload_to='online_shop/')
+    image = models.ImageField('Изображение',upload_to='online_shop/',blank=True)
     
     @admin.display(description='фото')
     def get_html_image(self):
@@ -29,6 +30,7 @@ class OnlineShop(models.Model):
     class Meta:
         db_table = 'advertisements'
 
+     
 
 
 

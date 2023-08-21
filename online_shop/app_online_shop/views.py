@@ -8,9 +8,9 @@ from django.urls import reverse
 def index(request):
     online_shops = OnlineShop.objects.all()
     context = {'online_shops': online_shops }
-    return render(request, 'index.html', context)
+    return render(request, 'app_advertisement/index.html', context)
 def top_sellers(request):
-    return render(request,'top-sellers.html')
+    return render(request,'app_advertisement/top-sellers.html')
 def advertisement_post(request):
     if request.method == 'POST':
         form = Advertisementform(request.POST,request.FILES)
@@ -23,7 +23,7 @@ def advertisement_post(request):
     else:
         form = Advertisementform()
     context = {'form':form}
-    return render(request, 'advertisement-post.html',context)
+    return render(request, 'app_advertisement/advertisement-post.html',context)
 def register(request):
     return render(request,'register.html')
 def login(request):
