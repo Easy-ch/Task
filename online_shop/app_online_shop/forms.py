@@ -1,8 +1,8 @@
-from typing import Any, Dict
 from django import forms
 from .models import OnlineShop 
 from django.forms import ModelForm
 from django.core.exceptions import ValidationError
+
 class Advertisementform(ModelForm):
     class Meta:
         model = OnlineShop
@@ -20,6 +20,7 @@ class Advertisementform(ModelForm):
             raise ValidationError('Заголовок не может начинаться с вопросительного знака')
  
         return title
+
 
     # title = forms.CharField(max_length=64, widget=forms.TextInput(attrs={'class':'form-control form-control-mg'}))
     # description = forms.CharField(widget=forms.Textarea(attrs={'class':'form-control form-control-mg'}))

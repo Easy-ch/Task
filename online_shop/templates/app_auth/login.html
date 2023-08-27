@@ -29,7 +29,7 @@
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link active" aria-current="page" href="l{% url 'login' %}">
+      <a class="nav-link active" aria-current="page" href="{% url 'login' %}">
         <span style="font-weight: bold;">Войти</span>
       </a>
     </li>
@@ -39,7 +39,7 @@
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="{% url 'logout' %}">
+      <a class="nav-link" href="#">
         <span style="font-weight: bold;">Выйти</span>
       </a>
     </li>
@@ -52,8 +52,9 @@
       </div>
     </div>
   </div>
-    <form method="post">
+    <form method="post"> {% csrf_token %}
       <div class="row mb-3">
+        {{form.as_p}}  
         <div class="col">
           <label class="col-sm-4 col-form-label offset-4">Username</label>
           <div class="col-sm-4 offset-4 w-25">
